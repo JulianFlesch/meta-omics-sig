@@ -142,15 +142,18 @@ The converters' own `--selftest` still applies, as described in [Home.md](../Hom
 
 ## Pinning the connectors
 
-The connectors are local pipelines in `metaomics.yaml` (`path: nf-meta/connectors/<name>`).
-`nf-meta validate` flags these as not reproducible, because they depend on this checkout. For a
-shared run, push, then replace each `path:` with the commit:
+The connectors run from GitHub at a pinned commit of this repository:
 
 ```yaml
     url: https://github.com/JulianFlesch/meta-omics-sig
     version: <full 40-character commit hash>
     main_script: nf-meta/connectors/<name>/main.nf
 ```
+
+After changing a connector or a converter in `scripts/converters/`, push, then move every
+connector's `version:` to that commit. While developing, a connector can point at the local
+checkout instead (`path: nf-meta/connectors/<name>`). `nf-meta validate` flags that as not
+reproducible.
 
 With `-main-script`, Nextflow (checked on 26.10) uses the `nextflow.config`, `bin/` and
 `projectDir` next to that script, not those at the repository root. nf-meta looks for
