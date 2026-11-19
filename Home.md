@@ -34,6 +34,7 @@ Start at [README.md](README.md) for the overview.
 | Which handoffs are validated, which need conversion, which are untested? | [PLAN.md](PLAN.md) § Samplesheet Chaining — Validation Table |
 | Which dataset should we use, and how do candidates score? | [DATASETS.md](DATASETS.md) |
 | What has actually been executed, with what provenance? | [RUNS.md](RUNS.md) |
+| How do I rerun the whole chain in one go? | [nf-meta/README.md](nf-meta/README.md) (`metaomics.yaml`) |
 | Which issues has this project filed upstream? | [RUNS.md](RUNS.md) § Upstream issues filed from this project |
 | How should an AI agent work in this repo? Conventions, guardrails, environment gotchas | [AGENTS.md](AGENTS.md) |
 | What does this acronym mean? | [ACRONYMS.md](ACRONYMS.md) |
@@ -60,6 +61,8 @@ with the Seqera Platform provenance link lives in [RUNS.md](RUNS.md).
 `scripts/converters/` holds the samplesheet conversions that the validation table marks
 CONVERSION REQUIRED. Each has an assert-based `--selftest` that runs with no arguments and
 no fixtures. They are the deliverable that turns a finding into a working handoff.
+[metaomics.yaml](metaomics.yaml) runs them as steps between the pipelines, wrapped in
+`nf-meta/connectors/` without copying them; see [nf-meta/README.md](nf-meta/README.md).
 
 `scripts/analysis/` holds analyses run on pipeline outputs once the runs are done, starting
 with the metatranscriptome-vs-metagenome family comparison (runs 03 and 06):

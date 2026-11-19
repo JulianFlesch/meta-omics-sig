@@ -14,3 +14,11 @@ runs/*/*.faa.gz
 .obsidian/themes/
 # Reference databases downloaded on the cluster into a run folder — tens of GB.
 runs/*/databases/
+# nf-meta (metaomics.yaml): run directory (nf-meta run -o) and connector test artifacts.
+nf-meta-out/
+lmo-inputs.yaml
+.nf-test/
+.nf-test.log
+.nextflow*
+work/
+__pycache__/

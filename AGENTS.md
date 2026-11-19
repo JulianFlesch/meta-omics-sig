@@ -10,8 +10,9 @@ context, conventions, resource pointers, and guardrails. It is not a project ove
 ## What This Repository Is
 
 A planning and execution workspace for the nf-core meta-omics SIG end-to-end use case.
-There is currently no pipeline code here — the repo holds documentation and planning
-artifacts. Tasks will include: dataset investigation, samplesheet format research,
+The repo holds documentation and planning artifacts, plus one piece of orchestration:
+[metaomics.yaml](metaomics.yaml) chains the runs in `runs/` as an nf-meta metapipeline
+([nf-meta/README.md](nf-meta/README.md)). Keep its params in step with `runs/*/params.yml`. Tasks will include: dataset investigation, samplesheet format research,
 pipeline chaining validation, and eventually workflow orchestration scripts.
 
 **Read [Home.md](Home.md) first.** It is the map of content: which file owns which
