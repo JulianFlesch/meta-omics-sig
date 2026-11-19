@@ -20,6 +20,17 @@ r01 fetchngs 1.12.0
  └─ c01_amp_reads ────► r08 ampliseq
 ```
 
+The same chain in nf-meta's graph view:
+
+![The metaomics.yaml metapipeline as an nf-meta graph: the inputs (fetchngs_ids and the
+reference databases) feed nf-core/fetchngs 1.12.0, which branches through four
+fetchngs_to_samplesheet connectors into ampliseq, mag, detaxizer and metatdenovo. mag leads
+through mag_to_proteinfamilies to proteinfamilies and proteinannotator; detaxizer to
+taxprofiler and, through detaxizer_to_samplesheet, to a second metatdenovo; metatdenovo
+through metatdenovo_to_proteinfamilies to proteinfamilies and proteinannotator. nf-core
+pipelines are outlined green, connectors (pinned to commit 2d34a03d) yellow, and dashed lines
+show which steps read the reference inputs](../images/nf-meta-screenshot.png)
+
 Step ids carry the run numbers from [RUNS.md](../RUNS.md):
 - `rNN`: the manual run with that number.
 - `cNN`: connectors; `NN` is the run they read from.
